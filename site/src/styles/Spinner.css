@@ -1,0 +1,26 @@
+.spinner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+}
+
+.spinner::before {
+  content: "";
+  display: block;
+  margin: auto;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border-left: 4px solid transparent;
+  border-right: 4px solid #ec1269;
+  animation: spinner 825ms linear infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotateZ(360deg);
+  }
+}

@@ -6,13 +6,15 @@ import "./App.css";
 
 class App extends Component {
   onClick = () => {
-    axios.post("/api", { firstName: "Foo" }).then(res => console.log(res));
+    axios.get("/api/users");
   };
   render() {
     return (
       <div>
         <h1>Hello, World</h1>
-        <button onClick={this.onClick} className='btn btn-danger'>Send Request</button>
+        <button onClick={this.onClick} className="btn btn-danger">
+          Send Request
+        </button>
       </div>
     );
   }

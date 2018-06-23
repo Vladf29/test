@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+
+import axios from "axios";
+
+import "./App.css";
 
 class App extends Component {
+  onClick = () => {
+    axios.post("/api", { firstName: "Foo" }).then(res => console.log(res));
+  };
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h1>Hello, World</h1>
+        <button onClick={this.onClick} className='btn btn-danger'>Send Request</button>
       </div>
     );
   }

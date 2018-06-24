@@ -1,20 +1,20 @@
 import React, { Component } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
 
-import axios from "axios";
-
-import "./App.css";
+import HomePage from "./components/Pages/HomePage";
+import UsersPage from "./components/Pages/UsersPage";
+import UserEditPage from "./components/Pages/UserEditPage";
 
 class App extends Component {
-  onClick = () => {
-    axios.get("/api/users");
-  };
   render() {
     return (
-      <div>
-        <h1>Hello, World</h1>
-        <button onClick={this.onClick} className="btn btn-danger">
-          Send Request
-        </button>
+      <div className="container">
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/users" component={UsersPage} />
+          <Route path="/edit/users/:username" component={UserEditPage} />
+          <Route render={() => <Redirect to="/" />} />
+        </Switch>
       </div>
     );
   }
